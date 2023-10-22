@@ -1,24 +1,33 @@
-import Comment from './components/Comment';
-import data from "../data.json";
-import './App.css';
+import Comment from "./components/Comment";
+import RepliesList from "./components/RepliesList";
+import CurrentUser from "./components/CurrentUser";
+import data from "./data.json";
+import "./App.css";
 
 function App() {
+  const commentList = data["comments"];
+
+  let image = "https://picsum.photos/200/300";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {commentList.map((item) => {
+        return (
+          <div>
+            <Comment
+              key={item["id"]}
+              displayPicture={item["user"]["image"]["png"]}
+              name={item["user"]["username"]}
+              timeAgo={item["createdAt"]}
+              text={item["content"]}
+              votes={item["score"]}
+            />
+            {<RepliesList key={Math.random()} list={item["replies"]} />}
+          </div>
+        );
+      })}
+      <CurrentUser />
+    </>
   );
 }
 
