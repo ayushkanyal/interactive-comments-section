@@ -1,18 +1,29 @@
 import style from "./Comment.module.css";
+import reply from "../images/icon-reply.svg";
 
-export default function Comment() {
+export default function Comment(props) {
   return (
     <>
-      <img alt="Profile"></img>
-      <h1 className={style["username"]}>
-        Name <span className={style["last_posted"]}> __ ago</span>
-      </h1>
-      <p className="comment_text">Comment Text</p>
-      <div className="comment_actions">
-        <button className="votes_counter"></button>
-        <button>
-          <img alt="reply action"></img>Reply
-        </button>
+      <div className={style["comment_box"]}>
+        <div className={style["comment_header"]}>
+          <img src="../images/avatars/image-maxblagun.png" alt={props.name}></img>
+          <p className={style["username"]}>{props.name}</p>
+          <div className={style["last_posted"]}>{props.timeAgo}</div>
+        </div>
+        <p className={style["comment_text"]}>
+          <span className={style["reply_tag"]}>{props.taggedUser}</span> {props.text}
+        </p>
+        <div className={style["comment_actions"]}>
+          <button className={style["votes_counter"]}>
+            <div className={style["operator"]}>+</div>
+            <div>{props.votes}</div>
+            <div className={`${style["operator"]} ${style["minus"]}`}>-</div>
+          </button>
+          <button className={style["reply_button"]}>
+            <img src={reply} alt="reply action"></img>
+            <p>Reply</p>
+          </button>
+        </div>
       </div>
     </>
   );
