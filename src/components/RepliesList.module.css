@@ -1,0 +1,11 @@
+.replies_list {
+  padding-left: 20px;
+  border-left: 1px solid hsl(239, 57%, 85%);
+  width: 80%;
+  margin: 0 auto;
+}
+
+.replies_list > div {
+  width: fit-content;
+  padding: 4%;
+}
