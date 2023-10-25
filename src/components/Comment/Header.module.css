@@ -1,0 +1,33 @@
+.comment_header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  max-width: 70%;
+}
+
+.comment_header > img {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
+.username {
+  font-size: 14px;
+}
+
+.last_posted {
+  font-size: 14px;
+  color: hsl(211, 10%, 45%);
+  white-space: nowrap;
+}
+
+.currentUserTag{
+  color: white;
+  background-color: hsl(238, 40%, 52%);
+  border: none;
+  padding: 2px 6px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
