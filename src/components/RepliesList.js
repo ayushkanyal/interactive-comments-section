@@ -1,5 +1,5 @@
 import style from "./RepliesList.module.css";
-import Comment from "./Comment";
+import Comment from "./Comment/Comment";
 
 export default function RepliesList(props) {
   return (
