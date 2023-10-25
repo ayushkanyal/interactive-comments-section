@@ -8,32 +8,6 @@
   width: 80%;
 }
 
-/* Top Layer */
-
-.comment_header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-  max-width: 70%;
-}
-
-.comment_header > img {
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-}
-
-.username {
-  font-size: 14px;
-}
-
-.last_posted {
-  font-size: 14px;
-  color: hsl(211, 10%, 45%);
-  white-space: nowrap;
-}
-
 /* Body */
 
 .comment_text {
@@ -42,7 +16,7 @@
   font-size: 15px;
 }
 
-.reply_tag{
+.reply_tag {
   color: hsl(238, 40%, 52%);
   font-weight: 700;
   font-size: 15px;
@@ -60,30 +34,23 @@ button {
   display: flex;
   align-items: center;
   color: hsl(238, 40%, 52%);
-}
-
-.votes_counter {
-  background-color: color-mix(in hsl, hsl(239, 57%, 85%), white 55%);
-  gap: 14px;
-  align-items: center;
-  font-weight: 600;
-  font-size: 15px;
+  gap: 7.5px;
   border: none;
-  border-radius: 6px;
-  padding: 1.5% 3%;
+  background-color: inherit;
+  font-weight: 600;
+  min-height: 20px;
 }
 
-.votes_counter > .operator {
-  color: color-mix(in hsl, black 12%, hsl(223, 19%, 93%) 88%);
-  font-size: 18px;
+.currentUser_actions {
+  display: flex;
+  gap: 5px;
 }
 
-.operator:hover {
-  cursor: pointer;
+.delete_button {
+  color: hsl(358, 79%, 66%);
 }
 
-.minus {
-  margin-top: -4px;
+.edit_button {
 }
 
 .reply_button {
@@ -92,6 +59,7 @@ button {
   font-weight: 700;
   background-color: inherit;
   border: none;
+  height: min-content;
 }
 
 .reply_button > img {
@@ -100,6 +68,12 @@ button {
 
 .reply_button:hover {
   cursor: pointer;
+  background-color: white;
+  color: color-mix(in hsl, hsl(238, 40%, 52%), hsl(239, 57%, 85%) 80%);
+}
+
+.replyIcon:hover {
+  fill: #fce57e;
 }
 
 @media (min-width: 376px) {
@@ -108,8 +82,12 @@ button {
   }
 
   .comment_box {
-    width: fit-content;
-    padding: 0.2% 1% 1%;
+    width: 50%;
+    padding: 2%;
+    position: relative;
+    padding: 1%;
+    padding-left: 80px;
+    min-height: 120px;
   }
 
   .last_posted {
@@ -117,20 +95,13 @@ button {
   }
 
   .comment_text {
-    max-width: 250px;
-    font-size: 12px;
-  }
-
-  .votes_counter {
-    gap: 8px;
-    padding: 1% 2.5%;
-  }
-
-  .votes_counter > .operator {
-    font-size: 18px;
+    width: 98%;
   }
 
   .reply_button {
+    position: absolute;
+    top: 2px;
+    right: 16px;
     gap: 6px;
     font-weight: 700;
   }
