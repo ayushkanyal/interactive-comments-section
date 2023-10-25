@@ -3,7 +3,7 @@
   border-color: inherit;
   border-radius: 5px;
   margin: 20px auto 40px;
-  padding: 4% 4%;
+  padding: 4%;
   font-weight: 500;
   width: 80%;
 }
@@ -52,5 +52,37 @@ textarea:hover {
 
 button:hover {
   cursor: pointer;
-  background-color: color-mix(in hsl, hsl(238, 40%, 52%) , hsl(239, 57%, 85%) 80%);
+  background-color: color-mix(
+    in hsl,
+    hsl(238, 40%, 52%),
+    hsl(239, 57%, 85%) 80%
+  );
+}
+
+@media (min-width: 376px) {
+  .comment_box {
+    display: flex;
+    position: relative;
+    padding: 1.8%;
+    padding-left: 70px;
+    width: 50%;
+  }
+
+  textarea {
+    padding: 1% 2%;
+    width: 82%;
+  }
+
+  .comment_footer > img {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  .comment_footer > button {
+    padding: 1.5% 2.5%;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+  }
 }
