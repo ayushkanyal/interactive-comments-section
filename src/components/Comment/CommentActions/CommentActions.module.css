@@ -1,0 +1,67 @@
+.comment_actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  color: hsl(238, 40%, 52%);
+  gap: 7.5px;
+  border: none;
+  background-color: inherit;
+  font-weight: 600;
+  min-height: 20px;
+}
+
+.currentUser_actions {
+  display: flex;
+  gap: 5px;
+}
+
+.delete_button {
+  color: hsl(358, 79%, 66%);
+}
+
+.reply_button {
+  gap: 7px;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  max-height: 30px;
+}
+
+svg {
+  fill: #5357b6;
+}
+
+.change_on_hover:hover {
+  cursor: pointer;
+  background-color: white;
+  color: color-mix(in hsl, hsl(238, 40%, 52%), hsl(239, 57%, 85%) 80%);
+}
+
+svg:hover {
+  fill: color-mix(in hsl, hsl(238, 40%, 52%), hsl(239, 57%, 85%) 80%);
+}
+
+@media (min-width: 376px) {
+  .reply_button {
+    position: absolute;
+    top: 17px;
+    right: 16px;
+    gap: 6px;
+    font-weight: 700;
+  }
+
+  .reply_button > img {
+    height: 10px;
+  }
+
+  .currentUser_actions {
+    position: absolute;
+    top: 23px;
+    right: 20px;
+  }
+}

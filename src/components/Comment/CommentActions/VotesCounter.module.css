@@ -1,0 +1,41 @@
+.votes_counter {
+  background-color: color-mix(in hsl, hsl(239, 57%, 85%), white 55%);
+  gap: 14px;
+  align-items: center;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  padding: 1.5% 3%;
+}
+
+.votes_counter:hover {
+  background-color: color-mix(in hsl, hsl(239, 57%, 85%), white 55%);
+  cursor: default;
+}
+
+.votes_counter > .operator {
+  color: color-mix(in hsl, black 12%, hsl(223, 19%, 93%) 88%);
+  font-size: 18px;
+}
+
+.operator:hover {
+  cursor: pointer;
+}
+
+.minus {
+  margin-top: -4px;
+}
+
+@media (min-width: 376px) {
+  .votes_counter {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 20px;
+    left: 16px;
+    width: 32px;
+    padding: 1% 1.5%;
+    gap: 9px;
+  }
+}
