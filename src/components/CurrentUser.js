@@ -27,7 +27,9 @@ export default function CurrentUser(props) {
         ></textarea>
         <div className={style["comment_footer"]}>
           <img src={image} alt={props.CurrentUserName}></img>
-          <button onClick={handleClick}>Send</button>
+          <button onClick={handleClick}>
+            Send
+          </button>
         </div>
       </form>
     </>
