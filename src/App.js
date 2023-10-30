@@ -7,7 +7,6 @@ import "./App.css";
 
 function App() {
   const [commentList, setCommentList] = useState(data["comments"]);
-
   function handleComment(text) {
     setCommentList((prevValue) => [
       ...prevValue,
