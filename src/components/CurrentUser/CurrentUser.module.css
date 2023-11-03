@@ -1,0 +1,88 @@
+.comment_box {
+  background-color: white;
+  border-color: inherit;
+  border-radius: 5px;
+  margin: 20px auto 40px;
+  padding: 4%;
+  font-weight: 500;
+  width: 80%;
+}
+
+textarea {
+  padding: 4% 6%;
+  width: 88%;
+  height: 4rem;
+  border-color: hsl(239, 57%, 85%);
+  border-radius: 5px;
+}
+
+textarea::placeholder {
+  color: hsl(239, 57%, 85%);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+textarea:hover {
+  cursor: pointer;
+}
+
+.comment_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.comment_footer > img {
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+}
+
+.comment_footer > button {
+  color: white;
+  background-color: hsl(238, 40%, 52%);
+  text-transform: uppercase;
+  border: none;
+  letter-spacing: 1px;
+  font-weight: 600;
+  padding: 4% 8%;
+  border-radius: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: color-mix(
+    in hsl,
+    hsl(238, 40%, 52%),
+    hsl(239, 57%, 85%) 80%
+  );
+}
+
+@media (min-width: 376px) {
+  .comment_box {
+    display: flex;
+    position: relative;
+    padding: 1.8%;
+    padding-left: 70px;
+    width: 50%;
+  }
+
+  textarea {
+    padding: 1% 2%;
+    width: 82%;
+  }
+
+  .comment_footer > img {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  .comment_footer > button {
+    padding: 1.5% 2.5%;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+  }
+}

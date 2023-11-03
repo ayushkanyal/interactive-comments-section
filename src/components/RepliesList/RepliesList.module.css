@@ -1,0 +1,28 @@
+.replies_list {
+  padding-left: 15px;
+  border-left: 1px solid hsl(239, 57%, 85%);
+  width: 80%;
+  margin: 0 auto;
+  margin-left: 32px;
+}
+
+.replies_list > div {
+  width: fit-content;
+  padding: 4%;
+}
+
+@media (min-width: 376px) {
+  .replies_list {
+    width: 56%;
+    justify-content: flex-end;
+    padding-left: 10px;
+    margin-left: 23.1%;
+  }
+
+  .replies_list > div {
+    width: 80%;
+    margin-left: 15px;
+    padding: 2%;
+    padding-left: 80px;
+  }
+}
