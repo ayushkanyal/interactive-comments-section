@@ -3,6 +3,10 @@ import Header from "./Header";
 import CommentActions from "./CommentActions/CommentActions";
 
 export default function Comment(props) {
+  function deleteAction(id) {
+    console.log(id);
+    props.onDelete(id);
+  }
   return (
     <>
       <div className={style["comment_box"]}>
@@ -16,7 +20,12 @@ export default function Comment(props) {
           <span className={style["reply_tag"]}>{props.taggedUser}</span>{" "}
           {props.text}
         </p>
-        <CommentActions id={(Math.random() * 10)} initialVotes={props.votes} userName={props.name} />
+        <CommentActions
+          id={props.id}
+          onDelete={deleteAction}
+          initialVotes={props.votes}
+          userName={props.name}
+        />
       </div>
     </>
   );
