@@ -1,20 +1,21 @@
-import Comment from "./components/UI/Comment/Comment";
-import RepliesList from "./components/UI/RepliesList";
-import CurrentUser from "./components/UI/CurrentUser";
+import Comment from "./components/Comment/Comment";
+import RepliesList from "./components/RepliesList/RepliesList";
+import CurrentUser from "./components/CurrentUser/CurrentUser";
 import data from "./data.json";
 import { useState } from "react";
 import "./App.css";
 
 function App() {
   const [commentList, setCommentList] = useState(data["comments"]);
-  function handleComment(text) {
+
+  function addComment(text) {
     setCommentList((prevValue) => [
       ...prevValue,
       {
         id: prevValue.length + 1,
         content: [text],
         createdAt: "now",
-        score: 1,
+        score: 0,
         user: {
           image: {
             png: "./images/avatars/image-juliusomo.png",
@@ -25,21 +26,26 @@ function App() {
         replies: [],
       },
     ]);
-    console.log(commentList[commentList.length - 1]["currentUser"]);
+  }
+
+  function deleteComment(deletedId) {
+    console.log(deletedId);
+    setCommentList(commentList.toSpliced(deletedId - 1, 1));
   }
 
   return (
     <>
       {commentList.map((item) => {
         return (
-          <div>
+          <div key={item["id"]}>
             <Comment
-              key={item["id"]}
+              id={item["id"]}
               displayPicture={item["user"]["image"]["png"]}
               name={item["user"]["username"]}
               timeAgo={item["createdAt"]}
               text={item["content"]}
               votes={item["score"]}
+              onDelete={deleteComment}
               currentUser={
                 String(item["user"]["username"]) ===
                 String(data["currentUser"]["username"])
@@ -54,7 +60,7 @@ function App() {
       <CurrentUser
         currentUserImage={data["currentUser"]["image"]["png"]}
         currentUserName={data["currentUser"]["username"]}
-        addComment={handleComment}
+        addComment={addComment}
       />
     </>
   );
