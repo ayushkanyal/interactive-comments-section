@@ -1,19 +1,18 @@
 import style from "./CommentActions.module.css";
 import VotesCounter from "./VotesCounter";
-import data from "../../../../data.json";
-import deleteIcon from "../../../../images/icon-delete.svg";
-import editIcon from "../../../../images/icon-edit.svg";
+import data from "../../../data.json";
+import deleteIcon from "../../../images/icon-delete.svg";
+import editIcon from "../../../images/icon-edit.svg";
 
 export default function CommentActions(props) {
-  function handleDelete(event) {
-    console.log(event.target);
+  function handleDelete() {
+    props.onDelete(props.id);
   }
 
   return (
     <>
       <div className={style["comment_actions"]}>
         <VotesCounter initialVotes={props.initialVotes} />
-
         {props.userName === String(data["currentUser"]["username"]) ? (
           <div className={style["currentUser_actions"]}>
             <button
