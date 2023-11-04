@@ -2,11 +2,15 @@ import Comment from "./components/Comment/Comment";
 import RepliesList from "./components/RepliesList/RepliesList";
 import CurrentUser from "./components/CurrentUser/CurrentUser";
 import data from "./data.json";
+import DeleteModal from "./components/DeleteModal/DeleteModal";
 import { useState } from "react";
+import DeleteCommentContext from "./Context/DeleteCommentContext";
 import "./App.css";
 
 function App() {
   const [commentList, setCommentList] = useState(data["comments"]);
+  const [activeModal, setActiveModal] = useState(false);
+  const [deleteMode, setDeleteMode] = useState(false);
 
   function addComment(text) {
     setCommentList((prevValue) => [
@@ -29,12 +33,24 @@ function App() {
   }
 
   function deleteComment(deletedId) {
+    setActiveModal(true);
     console.log(deletedId);
-    setCommentList(commentList.toSpliced(deletedId - 1, 1));
+    if (deleteMode) {
+      setCommentList(commentList.toSpliced(deletedId - 1, 1));
+    }
+  }
+
+  function handleModal(seletedButton) {
+    if (seletedButton === "delete") {
+      console.log(seletedButton);
+      setDeleteMode(true);
+    }
+    setActiveModal(false);
   }
 
   return (
     <>
+      {activeModal ? <DeleteModal onClick={handleModal} /> : ""}
       {commentList.map((item) => {
         return (
           <div key={item["id"]}>
