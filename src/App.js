@@ -4,7 +4,6 @@ import CurrentUser from "./components/CurrentUser/CurrentUser";
 import data from "./data.json";
 import DeleteModal from "./components/DeleteModal/DeleteModal";
 import { useState } from "react";
-import DeleteCommentContext from "./Context/DeleteCommentContext";
 import "./App.css";
 
 function App() {
