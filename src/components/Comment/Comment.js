@@ -1,7 +1,6 @@
 import style from "./Comment.module.css";
 import Header from "./Header";
 import CommentActions from "./CommentActions/CommentActions";
-
 export default function Comment(props) {
   function deleteAction(id) {
     console.log(id);
