@@ -3,10 +3,19 @@ import VotesCounter from "./VotesCounter";
 import data from "../../../data.json";
 import deleteIcon from "../../../images/icon-delete.svg";
 import editIcon from "../../../images/icon-edit.svg";
+import { useState } from "react";
 
 export default function CommentActions(props) {
-  function handleDelete() {
-    props.onDelete(props.id);
+  const [editMode, setEditMode] = useState(false);
+
+  function passAction(event) {
+    let action = event.target.value;
+    props.onInteract(props.id, action);
+    console.log(action);
+  }
+
+  function exp() {
+    setEditMode(true);
   }
 
   return (
@@ -14,20 +23,37 @@ export default function CommentActions(props) {
       <div className={style["comment_actions"]}>
         <VotesCounter initialVotes={props.initialVotes} />
         {props.userName === String(data["currentUser"]["username"]) ? (
+          
           <div className={style["currentUser_actions"]}>
-            <button
-              onClick={handleDelete}
-              className={`${style["change_on_hover"]} ${style["delete_button"]}`}
-            >
-              <img src={deleteIcon} alt="Delete Icon"></img>
-              Delete
-            </button>
-            <button
-              className={`${style["change_on_hover"]} ${style["edit_button"]}`}
-            >
-              <img src={editIcon} alt="Edit Icon"></img>
-              Edit
-            </button>
+            { !editMode ? (
+              <div>
+                <button
+                  onClick={passAction}
+                  value={"delete"}
+                  className={`${style["change_on_hover"]} ${style["delete_button"]}`}
+                >
+                  <img src={deleteIcon} alt="Delete Icon"></img>
+                  Delete
+                </button>
+                <button
+                  onClick={exp}
+                  value={"edit"}
+                  className={`${style["change_on_hover"]} ${style["edit_button"]}`}
+                >
+                  <img src={editIcon} alt="Edit Icon"></img>
+                  Edit
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={passAction}
+                value={"edit"}
+                className={`${style["change_on_hover"]} ${style["edit_button"]}`}
+              >
+                <img src={editIcon} alt="Edit Icon"></img>
+                Update
+              </button>
+            )}
           </div>
         ) : (
           <button
