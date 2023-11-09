@@ -9,7 +9,7 @@ import "./App.css";
 function App() {
   const [commentList, setCommentList] = useState(data["comments"]);
   const [activeModal, setActiveModal] = useState(false);
-  const [deleteMode, setDeleteMode] = useState(false);
+  const [deleteMode, setDeleteMode] = useState(true);
 
   function addComment(text) {
     setCommentList((prevValue) => [
@@ -31,11 +31,16 @@ function App() {
     ]);
   }
 
-  function deleteComment(deletedId) {
-    setActiveModal(true);
-    console.log(deletedId);
-    if (deleteMode) {
-      setCommentList(commentList.toSpliced(deletedId - 1, 1));
+  function deleteComment(deletedId, action) {
+    console.log(action);
+    if (action === "delete") {
+      setActiveModal(true);
+      console.log(deletedId);
+      if (deleteMode) {
+        setCommentList(commentList.toSpliced(deletedId - 1, 1));
+      }
+    } else {
+      console.log("edit was clicked")
     }
   }
 
@@ -43,6 +48,8 @@ function App() {
     if (seletedButton === "delete") {
       console.log(seletedButton);
       setDeleteMode(true);
+    } else {
+      setDeleteMode(false);
     }
     setActiveModal(false);
   }
@@ -60,7 +67,7 @@ function App() {
               timeAgo={item["createdAt"]}
               text={item["content"]}
               votes={item["score"]}
-              onDelete={deleteComment}
+              onAction={deleteComment}
               currentUser={
                 String(item["user"]["username"]) ===
                 String(data["currentUser"]["username"])
