@@ -1,10 +1,11 @@
 import style from "./Comment.module.css";
 import Header from "./Header";
 import CommentActions from "./CommentActions/CommentActions";
+
 export default function Comment(props) {
-  function deleteAction(id) {
+  function passId(id, action) {
     console.log(id);
-    props.onDelete(id);
+    props.onAction(id, action);
   }
   return (
     <>
@@ -21,7 +22,7 @@ export default function Comment(props) {
         </p>
         <CommentActions
           id={props.id}
-          onDelete={deleteAction}
+          onInteract={passId}
           initialVotes={props.votes}
           userName={props.name}
         />
