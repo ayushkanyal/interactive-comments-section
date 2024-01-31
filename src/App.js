@@ -6,7 +6,6 @@ import DeleteModal from "./components/DeleteModal/DeleteModal";
 import { useState } from "react";
 import "./App.css";
 
-
 function App() {
   const [commentList, setCommentList] = useState(data["comments"]);
   const [activeModal, setActiveModal] = useState(false);
